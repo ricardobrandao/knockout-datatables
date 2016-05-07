@@ -1,0 +1,90 @@
+{
+  "name": "knockout-datatables",
+  "version": "1.0.0",
+  "description": "Knockout binding handler for datatables.net",
+  "main": "index.js",
+  "dependencies": {
+    "jspm": "^0.16.33"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "knockout",
+    "datatables.net"
+  ],
+  "author": "Ricardo Brandão",
+  "license": "ISC",
+  "jspm": {
+    "dependencies": {
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "datatables.net": "github:DataTables/DataTables@1.10.10",
+      "datatables.net-fixedColumns": "github:DataTables/Dist-DataTables-FixedColumns@3.2.0",
+      "datatables.net-fixedColumns-bootstrap": "github:DataTables/Dist-DataTables-FixedColumns-Bootstrap@3.2.0",
+      "jquery": "github:components/jquery@2.2.1",
+      "knockout": "github:knockout/knockout@3.4.0",
+      "text": "github:systemjs/plugin-text@^0.0.7"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    },
+    "overrides": {
+      "github:DataTables/DataTables@1.10.10": {
+        "directories": {
+          "lib": "media"
+        },
+        "files": [
+          "media/css/dataTables.bootstrap.css",
+          "media/js/dataTables.bootstrap.js",
+          "media/js/jquery.dataTables.js"
+        ],
+        "main": "js/dataTables.bootstrap",
+        "map": {
+          "jquery": "github:components/jquery@2.1.4"
+        },
+        "shim": {
+          "js/dataTables.bootstrap": {
+            "deps": [
+              "datatables.net/css/dataTables.bootstrap.css!css",
+              "datatables.net/js/jquery.dataTables.js",
+              "bootstrap"
+            ]
+          },
+          "js/jquery.dataTables": {
+            "deps": [
+              "jquery"
+            ]
+          }
+        }
+      },
+      "github:DataTables/Dist-DataTables-FixedColumns@3.2.0": {
+        "shim": {
+          "js/dataTables.fixedColumns": {
+            "deps": [
+              "datatables.net-fixedColumns-bootstrap"
+            ]
+          }
+        }
+      },
+      "github:DataTables/Dist-DataTables-FixedColumns-Bootstrap@3.1.0": {
+        "main": "css/fixedColumns.bootstrap.css!css"
+      },
+      "github:DataTables/Dist-DataTables-FixedHeader@3.1.0": {
+        "shim": {
+          "js/dataTables.fixedHeader": {
+            "deps": [
+              "datatables.net-fixedHeader-bootstrap"
+            ]
+          }
+        },
+        "github:DataTables/Dist-DataTables-FixedHeader-Bootstrap@3.1.0": {
+          "main": "css/fixedHeader.bootstrap.css!css"
+        }
+      }
+    }
+  }
+}

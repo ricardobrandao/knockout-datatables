@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Knockout datatables</title>
+
+    <script src="../jspm_packages/system.js"></script>
+    <script src="../config.js"></script>
+    <script>
+        System.import('examples/examples.js');
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" style="max-width: 600px">
+        <div class="page-header">
+            <h1>Examples</h1>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Basic</div>
+            <div class="panel-body">
+                <table data-bind="datatables: {}" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="odd">
+                            <td data-bind="text: name" class="sorting_1">Airi Satou</td>
+                            <td data-bind="text: position">Accountant</td>
+                            <td data-bind="text: office">Tokyo</td>
+                            <td data-bind="text: startDate">2008/11/28</td>
+                            <td data-bind="text: salary">$162,700</td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td data-bind="text: name" class="sorting_1">Angelica Ramos</td>
+                            <td data-bind="text: position">Chief Executive Officer (CEO)</td>
+                            <td data-bind="text: office">London</td>
+                            <td data-bind="text: startDate">2009/10/09</td>
+                            <td data-bind="text: salary">$1,200,000</td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td data-bind="text: name" class="sorting_1">Ashton Cox</td>
+                            <td data-bind="text: position">Junior Technical Author</td>
+                            <td data-bind="text: office">San Francisco</td>
+                            <td data-bind="text: startDate">2009/01/12</td>
+                            <td data-bind="text: salary">$86,000</td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td data-bind="text: name" class="sorting_1">Bradley Greer</td>
+                            <td data-bind="text: position">Software Engineer</td>
+                            <td data-bind="text: office">London</td>
+                            <td data-bind="text: startDate">2012/10/13</td>
+                            <td data-bind="text: salary">$132,000</td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td data-bind="text: name" class="sorting_1">Brenden Wagner</td>
+                            <td data-bind="text: position">Software Engineer</td>
+                            <td data-bind="text: office">San Francisco</td>
+                            <td data-bind="text: startDate">2011/06/07</td>
+                            <td data-bind="text: salary">$206,850</td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td data-bind="text: name" class="sorting_1">Brielle Williamson</td>
+                            <td data-bind="text: position">Integration Specialist</td>
+                            <td data-bind="text: office">New York</td>
+                            <td data-bind="text: startDate">2012/12/02</td>
+                            <td data-bind="text: salary">$372,000</td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td data-bind="text: name" class="sorting_1">Caesar Vance</td>
+                            <td data-bind="text: position">Pre-Sales Support</td>
+                            <td data-bind="text: office">New York</td>
+                            <td data-bind="text: startDate">2011/12/12</td>
+                            <td data-bind="text: salary">$106,450</td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td data-bind="text: name" class="sorting_1">Cedric Kelly</td>
+                            <td data-bind="text: position">Senior Javascript Developer</td>
+                            <td data-bind="text: office">Edinburgh</td>
+                            <td data-bind="text: startDate">2012/03/29</td>
+                            <td data-bind="text: salary">$433,060</td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td data-bind="text: name" class="sorting_1">Charde Marshall</td>
+                            <td data-bind="text: position">Regional Director</td>
+                            <td data-bind="text: office">San Francisco</td>
+                            <td data-bind="text: startDate">2008/10/16</td>
+                            <td data-bind="text: salary">$470,600</td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td data-bind="text: name" class="sorting_1">Colleen Hurst</td>
+                            <td data-bind="text: position">Javascript Developer</td>
+                            <td data-bind="text: office">San Francisco</td>
+                            <td data-bind="text: startDate">2009/09/15</td>
+                            <td data-bind="text: salary">$205,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Templated</div>
+            <div class="panel-body">
+                <table data-bind="datatables: { rowTemplateId: 'rowTemplateId', data: rows }" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Fixed Columns (left)</div>
+            <div class="panel-body">
+                <table data-bind="datatables: { rowTemplateId: 'rowTemplateId', data: rows, options : { scrollX: true, fixedColumns: { leftColumns: 1 } } }"
+                    class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 150px">Name</th>
+                            <th style="min-width: 150px">Position</th>
+                            <th>Office</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Fixed Columns (right)</div>
+            <div class="panel-body">
+                <table data-bind="datatables: { rowTemplateId: 'rowTemplateId', data: rows, options : { scrollX: true, fixedColumns: { leftColumns: 0, rightColumns: 1 } } }"
+                    class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 150px">Name</th>
+                            <th style="min-width: 150px">Position</th>
+                            <th>Office</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Fixed Columns (both)</div>
+            <div class="panel-body">
+                <table data-bind="datatables: { rowTemplateId: 'rowTemplateId', data: rows, options : { scrollX: true, fixedColumns: { leftColumns: 1, rightColumns: 1 } } }"
+                    class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 150px">Name</th>
+                            <th style="min-width: 150px">Position</th>
+                            <th>Office</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="rowTemplateId">
+        <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: position"></td>
+            <td data-bind="text: office"></td>
+            <td data-bind="text: startDate"></td>
+            <td data-bind="text: salary"></td>
+        </tr>
+    </script>
+</body>
+
+</html>
